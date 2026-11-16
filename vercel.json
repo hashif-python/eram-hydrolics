@@ -1,28 +1,37 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "services": {
+    "app": {
+      "root": ".",
+      "framework": "vite"
+    },
+    "v1": {
+      "root": "designs/v1",
+      "framework": "vite"
+    },
+    "v2": {
+      "root": "designs/v2",
+      "framework": "vite"
+    },
+    "v3": {
+      "root": "designs/v3",
+      "framework": "vite"
+    },
+    "v4": {
+      "root": "designs/v4",
+      "framework": "vite"
+    },
+    "v5": {
+      "root": "designs/v5",
+      "framework": "vite"
+    }
+  },
   "rewrites": [
     {
-      "source": "/styles/v1/:path*",
-      "destination": "/styles/v1/index.html"
-    },
-    {
-      "source": "/styles/v2/:path*",
-      "destination": "/styles/v2/index.html"
-    },
-    {
-      "source": "/styles/v3/:path*",
-      "destination": "/styles/v3/index.html"
-    },
-    {
-      "source": "/styles/v4/:path*",
-      "destination": "/styles/v4/index.html"
-    },
-    {
-      "source": "/styles/v5/:path*",
-      "destination": "/styles/v5/index.html"
-    },
-    {
-      "source": "/:path*",
-      "destination": "/index.html"
+      "source": "/(.*)",
+      "destination": {
+        "service": "app"
+      }
     }
   ]
 }

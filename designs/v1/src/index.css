@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #12161b;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #e6e8ea;
+  background-color: #12161b;
+}
+
+::selection {
+  background-color: rgba(230, 59, 59, 0.3);
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #12161b;
+}
+::-webkit-scrollbar-thumb {
+  background: #363c45;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #4a515c;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+.text-gradient {
+  background: linear-gradient(135deg, #e63b3b 0%, #cc1f1f 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-light {
+  background: linear-gradient(135deg, #ffffff 0%, #a9bdd3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bg-grid {
+  background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.glass {
+  background: rgba(28, 33, 40, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.section-link {
+  position: relative;
+}
+.section-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #e63b3b;
+  transition: width 0.3s ease;
+}
+.section-link:hover::after {
+  width: 100%;
+}

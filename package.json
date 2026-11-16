@@ -1,0 +1,30 @@
+{
+  "name": "eram-hydraulics-client-showcase",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "workspaces": [
+    "designs/v1",
+    "designs/v3",
+    "designs/v4",
+    "designs/v5"
+  ],
+  "scripts": {
+    "build:styles": "node scripts/build-styles.mjs",
+    "dev": "npm run build:styles && vite --host 0.0.0.0",
+    "build": "npm run build:styles && vite build",
+    "preview": "vite preview --host 0.0.0.0"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "lucide-react": "^0.446.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.1.1",
+    "vite": "^7.3.7",
+    "typescript": "^5.5.3",
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18.3.0"
+  }
+}

@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ink-950 font-sans text-ink-800 antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display leading-[1.02] tracking-tight;
+  }
+}
+
+@layer components {
+  .grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.06;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .spotlight {
+    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgb(255 184 31 / 0.22), transparent 60%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .animate-marquee,
+  .animate-progress {
+    animation: none;
+  }
+}
